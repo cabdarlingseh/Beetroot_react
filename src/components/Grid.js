@@ -1,4 +1,4 @@
-export default function Grid() {
+export default function Grid({ movies }) {
     return (
         <div className="home container" >
             <h2>Results</h2>
@@ -7,7 +7,7 @@ export default function Grid() {
                     {
                         movies.map(el => {
                             return (
-                                <div className="col">
+                                <div className="col" key={el.id}>
                                     <div className="card shadow-sm">
                                         <img src={`https://image.tmdb.org/t/p/w500/${el.poster_path}`} className="bd-placeholder-img card-img-top" alt="Movie poster" />
                                         <div className="card-body">

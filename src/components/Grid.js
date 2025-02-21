@@ -1,7 +1,9 @@
 export default function Grid({ movies }) {
     return (
         <div className="home container" >
-            <h2>Results</h2>
+            {
+                movies.length ? <h2>Results</h2> : null
+            }
             <div className="container">
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     {

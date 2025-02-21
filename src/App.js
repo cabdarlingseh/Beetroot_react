@@ -1,4 +1,3 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Home from './components/Home';
 import StringToNumber from './components/StringsToNumber';

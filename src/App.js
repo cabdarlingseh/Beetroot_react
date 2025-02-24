@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import Home from './components/Home';
 import StringToNumber from './components/StringsToNumber';
+import SampleApi from './components/SampleApi';
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <div className="App" >
       <Home />
       <StringToNumber />
+      <SampleApi />
     </div>
   );
 }

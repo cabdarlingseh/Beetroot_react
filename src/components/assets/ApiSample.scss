@@ -1,0 +1,31 @@
+.api_container {
+    text-align: center;
+}
+
+.input_area {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.post {
+    h2 {
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    p {
+        text-align: center;
+        text-transform: capitalize;
+    }
+}
+
+.loading {
+    color: sienna;
+}
+
+.error {
+    color: #d00000;
+    text-align: center;
+    padding: 10px;
+}

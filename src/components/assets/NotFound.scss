@@ -1,0 +1,26 @@
+.not_found-page {
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(135deg, #1e1e2f, #3d3d5c) !important;
+    background-image: none !important;
+    color: #fff;
+    width: 100%;
+
+    .not_found-animation {
+        width: 100%;
+    }
+
+    .home-link {
+        background: #ff6b6b;
+        color: #fff;
+        font-size: 1.2rem;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            background: #ff4757;
+            transform: scale(1.05);
+        }
+    }
+}

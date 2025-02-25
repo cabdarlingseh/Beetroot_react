@@ -2,11 +2,15 @@ h1 {
     padding: 20px;
     text-transform: uppercase;
     text-align: center;
+    font-family: "Exo 2",
+        serif;
 }
 
 h2 {
     padding: 20px;
     color: #d00000;
+    font-family: "Kanit",
+        serif;
 }
 
 .home_heading {
@@ -15,15 +19,26 @@ h2 {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    font-size: 50px;
-    text-align: center;
+    font-size: 45px;
 }
 
-.not_found {
-    background-image: url('../images/page_not_found.jpg') !important;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
+.container {
+    max-width: 720px;
+}
+
+.welcome {
+    width: 100%;
+    background: none !important;
+    margin: 0 auto;
+}
+
+.main_container {
+    margin-top: 125px;
+}
+
+li {
+    a {
+        font-family: "Kanit",
+            serif;
+    }
 }

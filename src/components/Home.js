@@ -1,7 +1,10 @@
+import Lottie from "lottie-react";
+import Welcome from '../components/images/welcome.json';
+
 export default function Home() {
     return (
         <div>
-            <h1 className="home_heading">This Is My Homeworks Page</h1>
+            <Lottie animationData={Welcome} loop={true} className="welcome" />
         </div>
     )
 }

@@ -1,20 +1,35 @@
-import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import '../components/assets/Layout.scss';
 import logo from '../components/images/logo.svg';
 
 
+
 export default function Layout() {
+
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.pathname === '/') {
+            document.body.classList.add('main_page');
+        }
+        else {
+            document.body.classList.remove('main_page');
+        }
+
+        return () => {
+            document.body.classList.remove('main_page');
+        }
+    }, [location.pathname]);
+
     return (
-        <div>
+        <div className="main_container">
             {/* Navigation bar */}
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
                     <Link to='/' className="navbar-brand logo"><img src={logo} alt="Logo" /></Link>
+                    <h2 className="homeworks">My HomeWorks</h2>
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <Link to="/" className="nav-link">Home</Link>
-                        </li>
                         <li className="nav-item">
                             <Link to="/movies" className="nav-link">Movies</Link>
                         </li>

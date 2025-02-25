@@ -7,6 +7,8 @@ import Movies from './components/Movies';
 import StringToNumber from './components/StringsToNumber';
 import SampleApi from './components/SampleApi';
 import NotFound from './components/NotFound';
+import BlogPage from './components/Blog/BlogPage';
+import SinglePost from './components/Blog/SinglePost';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
             <Route path="movies" element={<Movies />} />
             <Route path="sampleapi" element={<SampleApi />} />
             <Route path="stringtonumber" element={<StringToNumber />} />
+            <Route path="blog" element={<BlogPage />} />
+            <Route path="blog/singlepost/post-:postId" element={<SinglePost />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

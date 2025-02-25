@@ -11,14 +11,14 @@ export default function Layout() {
 
     useEffect(() => {
         if (location.pathname === '/') {
-            document.body.classList.add('main_page');
+            document.body.classList.add('full_height');
         }
         else {
-            document.body.classList.remove('main_page');
+            document.body.classList.remove('full_height');
         }
 
         return () => {
-            document.body.classList.remove('main_page');
+            document.body.classList.remove('full_height');
         }
     }, [location.pathname]);
 
@@ -38,6 +38,9 @@ export default function Layout() {
                         </li>
                         <li className="nav-item">
                             <Link to="/stringtonumber" className="nav-link">String To Number</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/blog" className="nav-link">Blog Page</Link>
                         </li>
                     </ul>
                 </div>

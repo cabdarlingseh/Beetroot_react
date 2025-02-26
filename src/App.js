@@ -9,6 +9,7 @@ import SampleApi from './components/SampleApi';
 import NotFound from './components/NotFound';
 import BlogPage from './components/Blog/BlogPage';
 import SinglePost from './components/Blog/SinglePost';
+import Homework from './components/Homework';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="homework" element={<Homework />} />
             <Route path="movies" element={<Movies />} />
             <Route path="sampleapi" element={<SampleApi />} />
             <Route path="stringtonumber" element={<StringToNumber />} />

@@ -1,5 +1,8 @@
 import { useState } from "react";
 import './assets/ApiSample.scss';
+import { Link } from "react-router-dom";
+
+import '../components/assets/Home.scss';
 
 const api_url = 'https://jsonplaceholder.typicode.com/posts';
 
@@ -65,6 +68,10 @@ export default function SampleApi() {
                     <p>{post.body}</p>
                 </div>
             )}
+
+            <div>
+                <Link to='/' className="go_home">Go Home</Link>
+            </div>
         </div>
     );
 }

@@ -3,23 +3,19 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import '../components/assets/Layout.scss';
 import logo from '../components/images/logo.svg';
 
-
-
 export default function Layout() {
-
     const location = useLocation();
 
     useEffect(() => {
         if (location.pathname === '/') {
             document.body.classList.add('full_height');
-        }
-        else {
+        } else {
             document.body.classList.remove('full_height');
         }
 
         return () => {
             document.body.classList.remove('full_height');
-        }
+        };
     }, [location.pathname]);
 
     return (
@@ -31,16 +27,7 @@ export default function Layout() {
                     <h2 className="homeworks">My HomeWorks</h2>
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link to="/movies" className="nav-link">Movies</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/sampleapi" className="nav-link">Sample API</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/stringtonumber" className="nav-link">String To Number</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/blog" className="nav-link">Blog Page</Link>
+                            <Link to="/homework" className="nav-link">HomeWorks</Link>
                         </li>
                     </ul>
                 </div>
@@ -50,5 +37,5 @@ export default function Layout() {
                 <Outlet />
             </div>
         </div>
-    )
+    );
 }

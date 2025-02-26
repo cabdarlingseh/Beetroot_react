@@ -103,6 +103,9 @@ export default function BlogPage() {
                 <span>Page {currentPage} of {totalPages}</span>
                 <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>Next</button>
             </div>
+            <div>
+                <Link to='/' className="go_home">Go Home</Link>
+            </div>
         </div>
     );
 }

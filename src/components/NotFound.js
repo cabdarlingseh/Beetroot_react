@@ -16,7 +16,7 @@ export default function NotFound() {
     return (
         <div className="not_found">
             <Lottie animationData={notFoundAnimation} loop={true} className="not_found-animation" />
-            <Link to='/' className="home-link">Go Home</Link>
+            <Link to='/' className="go_home">Go Home</Link>
         </div>
     )
 }

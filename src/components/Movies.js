@@ -1,11 +1,8 @@
 import SearchInput from "./SearchInput";
 import Grid from './Grid';
 import './assets/Home.scss'; //This is scoped styling
-import {
-    useEffect,
-    useState
-} from "react";
-
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const API_key = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZjc0MWQ5MTA4OTFmY2E4ZDFjM2IzNjk1MTE2YWRjNCIsIm5iZiI6MTczNjUwNzU3Ni43OTMsInN1YiI6IjY3ODEwMGI4MTI2Njc5Njg4NTRlYzZhZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ak8XRqKjGEaCIMAXg90eC8yjfx58vRU31CjRXoz4HKA';
 
@@ -56,6 +53,7 @@ export default function Home() {
             <h1> The Film Database </h1>
             <SearchInput onChangeFunction={setMovieName} onSearchFunction={searchHandler} />
             < Grid movies={movies} />
+            <Link to='/' className="go_home">Go Home</Link>
         </div>
     )
 }

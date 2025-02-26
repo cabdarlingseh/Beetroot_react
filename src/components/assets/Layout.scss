@@ -23,7 +23,6 @@ body {
 .homeworks {
     padding: 0;
     text-align: center;
-    margin-left: 22%;
     color: #fff !important;
 }
 
@@ -44,7 +43,16 @@ body {
     margin-bottom: 20px;
     background-color: #171919 !important;
 
-    a {
-        color: #fff;
+    li {
+        a {
+            font-family: "Kanit",
+                serif;
+            color: #fff;
+
+            &:hover,
+            &:focus {
+                color: #d00000;
+            }
+        }
     }
 }

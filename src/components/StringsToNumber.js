@@ -1,5 +1,6 @@
 import { useState } from "react";
 import './assets/StringToNumber.scss';
+import { Link } from "react-router-dom";
 
 export default function StringToNumber() {
 
@@ -40,6 +41,9 @@ export default function StringToNumber() {
             {convertedNumber !== null && (
                 <p>Converted Number: {convertedNumber}</p>
             )}
+            <div>
+                <Link to='/' className="go_home">Go Home</Link>
+            </div>
         </div>
     )
 }

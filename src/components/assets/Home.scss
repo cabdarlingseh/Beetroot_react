@@ -30,6 +30,8 @@ h2 {
 
 .container {
     max-width: 720px;
+
+
 }
 
 .welcome {
@@ -40,11 +42,22 @@ h2 {
 
 .main_container {
     margin-top: 125px;
-}
 
-li {
-    a {
-        font-family: "Kanit",
-            serif;
+    .go_home {
+        background: #ff6b6b;
+        color: #fff;
+        font-size: 1.2rem;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: 0.3sease-in-out;
+        margin: 50px auto;
+        display: block;
+        width: 100%;
+        text-align: center;
+
+        &:hover {
+            background: #ff4757;
+            transform: scale(1.05);
+        }
     }
 }

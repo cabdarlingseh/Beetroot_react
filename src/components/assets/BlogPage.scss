@@ -1,6 +1,4 @@
 .blog-page {
-    padding: 20px;
-
     h2 {
         text-align: center;
         padding-bottom: 20px;
@@ -30,6 +28,7 @@
     p {
         margin: 0 0 10px 0;
         text-align: center;
+        color: #d00000;
 
     }
 }
@@ -63,4 +62,17 @@
     height: 200px;
     margin: 0 auto;
     display: block;
+}
+
+.read_more_button {
+    margin: 20px auto 0;
+    text-align: center;
+
+    .btn {
+        color: #fff !important;
+
+        &:hover {
+            color: #d00000;
+        }
+    }
 }

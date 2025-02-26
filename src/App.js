@@ -23,7 +23,7 @@ function App() {
             <Route path="sampleapi" element={<SampleApi />} />
             <Route path="stringtonumber" element={<StringToNumber />} />
             <Route path="blog" element={<BlogPage />} />
-            <Route path="blog/singlepost/post-:postId" element={<SinglePost />} />
+            <Route path="blog/:id" element={<SinglePost />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

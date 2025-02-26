@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import axios from "axios";
 import '../assets/BlogPage.scss';
 import Lottie from "lottie-react";
@@ -13,24 +13,19 @@ export default function BlogPage() {
     const postsPerPage = 5;
     const [totalPosts, setTotalPosts] = useState(0);
 
-
     const location = useLocation();
-
 
     useEffect(() => {
         const setFullHeight = () => {
             if (location.pathname === '/blog') {
                 document.body.style.height = `100%`;
             } else {
-
                 document.body.style.height = 'auto';
             }
         };
 
         setFullHeight();
-
         window.addEventListener('resize', setFullHeight);
-
 
         return () => {
             window.removeEventListener('resize', setFullHeight);
@@ -38,26 +33,19 @@ export default function BlogPage() {
         };
     }, [location.pathname]);
 
-
     useEffect(() => {
         const fetchPosts = async () => {
             setLoading(true);
             try {
-                const offset = (currentPage - 1) * postsPerPage;
                 const response = await axios.get(
-                    `https://api.slingacademy.com/v1/sample-data/blog-posts?offset=${offset}&limit=${postsPerPage}`
+                    `https://api.slingacademy.com/v1/sample-data/blog-posts`
                 );
-
                 console.log('API Response:', response.data);
-
-
                 if (response.data.success) {
                     setPosts(response.data.blogs);
                     setTotalPosts(response.data.total_blogs || 0);
                     setLoading(false);
-                }
-
-                else {
+                } else {
                     throw new Error("API response unsuccessful");
                 }
             } catch (error) {
@@ -87,13 +75,20 @@ export default function BlogPage() {
             <div className="post-list">
                 {posts.map((post) => (
                     <div key={post.id} className="post-preview">
-                        <Link to={`/blog/post-${post.id}`} onClick={() => console.log(`Navigating to /blog/post-${post.id}`)}>
-                            <h3>{post.title}</h3>
-                            <p>{post.description}</p>
-                            {post.photo_url && (
-                                <img src={post.photo_url} alt={post.title} className="preview-image" />
-                            )}
-                        </Link>
+                        <h3>{post.title}</h3>
+                        <p>{post.description}</p>
+                        {post.photo_url && (
+                            <img src={post.photo_url} alt={post.title} className="preview-image" />
+                        )}
+                        <div className="read_more_button">
+                            <NavLink to='blog/123132' className='btn btn-danger '>Read More</NavLink>
+                        </div>
+                        {/* <Link
+                            to={`/blog/post-${post.id}`}
+                            onClick={(e) => console.log(`Clicked link to /blog/post-${post.id}`, e)}
+                        >
+                            
+                        </Link> */}
                     </div>
                 ))}
             </div>

@@ -22,15 +22,23 @@ export default function Layout() {
         <div className="main_container">
             {/* Navigation bar */}
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
+
                 <div className="container-fluid">
+
                     <Link to='/' className="navbar-brand logo"><img src={logo} alt="Logo" /></Link>
-                    <h2 className="homeworks">My HomeWorks</h2>
+
+                    <h2 className="homeworks"><Link to='/'>My HomeWorks</Link></h2>
+
                     <ul className="navbar-nav">
+
                         <li className="nav-item">
                             <Link to="/homework" className="nav-link">HomeWorks</Link>
                         </li>
+
                     </ul>
+
                 </div>
+
             </nav>
 
             <div className="container mt-4">

@@ -9,6 +9,8 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
+    "dompurify": "^3.2.4",
+    "html-react-parser": "^5.2.2",
     "lottie-react": "^2.4.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

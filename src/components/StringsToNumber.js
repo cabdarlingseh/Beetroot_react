@@ -42,7 +42,7 @@ export default function StringToNumber() {
                 <p>Converted Number: {convertedNumber}</p>
             )}
             <div>
-                <Link to='/' className="go_home">Go Home</Link>
+                <Link to='/homework' className="go_home">Go Back To Homeworks</Link>
             </div>
         </div>
     )

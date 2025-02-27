@@ -23,8 +23,20 @@ body {
 .homeworks {
     padding: 0;
     text-align: center;
-    color: #fff !important;
+    cursor: pointer;
+    margin-top: 10px;
+
+    a {
+        text-decoration: none;
+        color: #fff;
+
+        &:hover {
+            color: #d00000;
+            text-decoration: underline;
+        }
+    }
 }
+
 
 .nav-item:hover {
     text-decoration: underline;
@@ -33,6 +45,10 @@ body {
 
 .nav-link:hover {
     color: #d00000;
+}
+
+.nav-link:focus {
+    color: #fff;
 }
 
 .navbar {
@@ -49,10 +65,15 @@ body {
                 serif;
             color: #fff;
 
-            &:hover,
-            &:focus {
+            &:hover {
                 color: #d00000;
             }
         }
     }
+}
+
+.homework-list {
+    font-family: "Kanit",
+        serif;
+    ;
 }

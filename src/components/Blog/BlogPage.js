@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import '../assets/BlogPage.scss';
 import Lottie from "lottie-react";
@@ -13,14 +13,13 @@ export default function BlogPage() {
     const postsPerPage = 5;
     const [totalPosts, setTotalPosts] = useState(0);
 
-    const location = useLocation();
 
     useEffect(() => {
         const setFullHeight = () => {
-            if (location.pathname === '/blog') {
-                document.body.style.height = `100%`;
+            if (loading) {
+                document.body.style.height = '100vh';
             } else {
-                document.body.style.height = 'auto';
+                document.body.style.height = '100%';
             }
         };
 
@@ -31,24 +30,29 @@ export default function BlogPage() {
             window.removeEventListener('resize', setFullHeight);
             document.body.style.height = 'auto';
         };
-    }, [location.pathname]);
+    }, [loading]);
 
     useEffect(() => {
         const fetchPosts = async () => {
             setLoading(true);
             try {
+                const offset = (currentPage - 1) * postsPerPage;
                 const response = await axios.get(
-                    `https://api.slingacademy.com/v1/sample-data/blog-posts`
+                    `https://api.slingacademy.com/v1/sample-data/blog-posts?offset=${offset}&limit=${postsPerPage}`
                 );
-                console.log('API Response:', response.data);
+
+                // console.log('API Response:', response.data);
+
                 if (response.data.success) {
                     setPosts(response.data.blogs);
                     setTotalPosts(response.data.total_blogs || 0);
                     setLoading(false);
-                } else {
+                }
+                else {
                     throw new Error("API response unsuccessful");
                 }
-            } catch (error) {
+            }
+            catch (error) {
                 setError('Failed to fetch blog posts: ' + error.message);
                 setLoading(false);
             }
@@ -62,7 +66,8 @@ export default function BlogPage() {
     const handlePageChange = (page) => {
         if (page >= 1 && page <= totalPages) {
             setCurrentPage(page);
-            console.log(`Page changed to: ${page}`);
+
+            // console.log(`Page changed to: ${page}`);
         }
     };
 
@@ -72,25 +77,26 @@ export default function BlogPage() {
     return (
         <div className="blog-page">
             <h2>Blog Posts</h2>
+
             <div className="post-list">
+
                 {posts.map((post) => (
+
                     <div key={post.id} className="post-preview">
+
                         <h3>{post.title}</h3>
                         <p>{post.description}</p>
                         {post.photo_url && (
                             <img src={post.photo_url} alt={post.title} className="preview-image" />
                         )}
+
                         <div className="read_more_button">
-                            <NavLink to='blog/123132' className='btn btn-danger '>Read More</NavLink>
+                            <NavLink to={`/blog/${post.id}`} key={post.id} className='btn btn-danger '>Read More</NavLink>
                         </div>
-                        {/* <Link
-                            to={`/blog/post-${post.id}`}
-                            onClick={(e) => console.log(`Clicked link to /blog/post-${post.id}`, e)}
-                        >
-                            
-                        </Link> */}
+
                     </div>
                 ))}
+
             </div>
 
             <div className="pagination">
@@ -98,8 +104,9 @@ export default function BlogPage() {
                 <span>Page {currentPage} of {totalPages}</span>
                 <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>Next</button>
             </div>
+
             <div>
-                <Link to='/' className="go_home">Go Home</Link>
+                <Link to='/homework' className="go_home">Go Back To Homeworks</Link>
             </div>
         </div>
     );

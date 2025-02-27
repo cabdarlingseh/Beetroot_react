@@ -1,9 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import '../components/assets/Homework.scss';
 
 
 export default function Homework() {
+
+    const location = useLocation();
+
+    useEffect(() => {
+        return () => { document.body.style.height = ''; }
+    }, [location.pathname]);
+
+
     return (
         <div className="homework-container">
             <h2>Homework Links</h2>

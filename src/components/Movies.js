@@ -53,7 +53,7 @@ export default function Home() {
             <h1> The Film Database </h1>
             <SearchInput onChangeFunction={setMovieName} onSearchFunction={searchHandler} />
             < Grid movies={movies} />
-            <Link to='/' className="go_home">Go Home</Link>
+            <Link to='/homework' className="go_home">Go Back To Homeworks</Link>
         </div>
     )
 }

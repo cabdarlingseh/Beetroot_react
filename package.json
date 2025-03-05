@@ -10,6 +10,7 @@
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
     "dompurify": "^3.2.4",
+    "firebase": "^11.4.0",
     "html-react-parser": "^5.2.2",
     "lottie-react": "^2.4.1",
     "react": "^19.0.0",

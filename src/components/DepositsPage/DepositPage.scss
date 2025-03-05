@@ -1,0 +1,105 @@
+.deposits_page {
+    ul {
+        padding: 0;
+        list-style: none;
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+.table_header {
+    padding: 0.4rem 1rem;
+    background-color: rgb(248, 248, 248);
+    margin: 2rem 0px;
+    border-radius: 5px;
+}
+
+.active_label {
+    gap: 30px;
+
+    span {
+        margin-left: 1rem;
+        font-size: 1rem;
+        background-color: rgb(88, 82, 128);
+        color: rgb(255, 255, 255);
+        width: 28px;
+        height: 28px;
+        display: flex;
+
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        border-radius: 20px;
+    }
+}
+
+.table_header_actions,
+.active_label {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(88, 82, 128);
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.table_header,
+.table_body {
+    ul {
+        display: flex;
+        justify-content: space-between;
+
+        li {
+            flex-grow: 1;
+            width: 100%;
+        }
+    }
+}
+
+.table_body {
+    ul {
+        padding: 10px;
+        border-bottom: 1px solid lightgray;
+    }
+}
+
+.add_modal {
+    position: fixed;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background-color: #fff;
+    width: 75%;
+    border: 1px solid #b0abab;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .close {
+        margin-left: auto;
+        margin-right: 0;
+        display: block;
+    }
+
+    input {
+        width: 100%;
+        padding: 5px 10px;
+        margin: 0;
+        box-sizing: border-box;
+        display: block;
+    }
+
+    p {
+        margin-bottom: 5px;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+}

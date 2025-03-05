@@ -29,6 +29,9 @@ export default function Homework() {
                     <Link to="/blog">Blog Page</Link>
                 </li>
                 <li>
+                    <Link to="/deposits">Deposits</Link>
+                </li>
+                <li>
                     <Link to='/' className="home-link">Go Home</Link>
                 </li>
             </ul>

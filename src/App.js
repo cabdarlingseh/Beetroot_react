@@ -10,6 +10,7 @@ import NotFound from './components/NotFound';
 import BlogPage from './components/Blog/BlogPage';
 import SinglePost from './components/Blog/SinglePost';
 import Homework from './components/Homework';
+import DepositPage from './components/DepositsPage/DepositPage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="stringtonumber" element={<StringToNumber />} />
             <Route path="blog" element={<BlogPage />} />
             <Route path="blog/:id" element={<SinglePost />} />
+            <Route path="deposits" element={<DepositPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

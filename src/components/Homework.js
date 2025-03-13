@@ -32,6 +32,9 @@ export default function Homework() {
                     <Link to="/deposits">Deposits</Link>
                 </li>
                 <li>
+                    <Link to="/pricing">Pricing</Link>
+                </li>
+                <li>
                     <Link to='/' className="home-link">Go Home</Link>
                 </li>
             </ul>

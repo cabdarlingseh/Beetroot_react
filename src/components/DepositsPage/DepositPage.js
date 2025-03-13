@@ -3,6 +3,8 @@ import './DepositPage.scss';
 import { useEffect, useState } from 'react';
 import { db } from '../../firebase/firebaseConfig';
 import DepositsInfoModal from './DepositsInfoModal';
+import { Link } from 'react-router-dom';
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
 export default function DepositPage() {
 
@@ -85,41 +87,47 @@ export default function DepositPage() {
                         getAllProperty={getAllProperty} />
                 </div>
 
-                <div className='table_header'>
-                    <ul>
-                        <li className='table_header_item'>Property</li>
-                        <li className='table_header_item'>Move In Date</li>
-                        <li className='table_header_item'>Rent</li>
-                        <li className='table_header_item'>Deposit</li>
-                        <li className='table_header_item'>Status</li>
-                        <li className='table_header_item'>Actions</li>
-                    </ul>
+                <TableContainer component={Paper}>
+                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                        <TableHead>
+                            <TableRow>
+
+                                <TableCell className='table_header_item'>Property</TableCell>
+                                <TableCell className='table_header_item'>Move In Date</TableCell>
+                                <TableCell className='table_header_item'>Rent</TableCell>
+                                <TableCell className='table_header_item'>Deposit</TableCell>
+                                <TableCell className='table_header_item'>Status</TableCell>
+                                <TableCell className='table_header_item'>Actions</TableCell>
+
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {
+                                propertyArr.map(el => {
+                                    return (
+                                        <TableRow key={el.id}>
+                                            <TableCell className='table_body_item'>{el.property}</TableCell>
+                                            <TableCell className='table_body_item'>{el.move_in_date}</TableCell>
+                                            <TableCell className='table_body_item'>${el.rent}</TableCell>
+                                            <TableCell className='table_body_item'>${el.deposit}</TableCell>
+                                            <TableCell className='table_body_item'>{getStatusLabel(el.status)}</TableCell>
+                                            <TableCell className='table_body_item'>
+                                                <button
+                                                    onClick={() => callEditModal(el.id)}
+                                                    className='btn btn-primary'>
+                                                    Edit
+                                                </button>
+                                            </TableCell>
+                                        </TableRow>
+                                    )
+                                })
+                            }
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+                <div>
+                    <Link to='/homework' className="go_home">Go Back To Homeworks</Link>
                 </div>
-
-                <div className='table_body'>
-                    {
-                        propertyArr.map(el => {
-                            return (
-                                <ul key={el.id}>
-                                    <li className='table_body_item'>{el.property}</li>
-                                    <li className='table_body_item'>{el.move_in_date}</li>
-                                    <li className='table_body_item'>${el.rent}</li>
-                                    <li className='table_body_item'>${el.deposit}</li>
-                                    <li className='table_body_item'>{getStatusLabel(el.status)}</li>
-                                    <li className='table_body_item'>
-                                        <button
-                                            onClick={() => callEditModal(el.id)}
-                                            className='btn btn-primary'>
-                                            Edit
-                                        </button>
-                                    </li>
-                                </ul>
-                            )
-                        })
-                    }
-
-                </div>
-
             </div>
         </div>
     )

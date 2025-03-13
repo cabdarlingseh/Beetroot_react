@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import './DepositPage.scss';
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { Box, Button, Modal, TextField } from "@mui/material";
 
 export default function DepositsInfoModal({
     getAllProperty,
@@ -122,91 +124,106 @@ export default function DepositsInfoModal({
 
     return (
         <div>
-            <button className='add_btn btn btn-danger' onClick={openAddModal}>Add</button>
-            {
-                isModalVisible &&
+            <Button variant="contained" startIcon={<AddCircleIcon />} onClick={openAddModal}>
+                Add
+            </Button>
 
-                <div className="add_modal">
+            <Modal
+                open={isModalVisible}
+                onClose={() => setIsModalVisible(false)}
+            >
+                <Box>
+                    <div className="add_modal">
 
-                    <button
-                        onClick={() => {
-                            setIsModalVisible(false);
-                            setPropertyToEdit(null);
-                            resetForm();
-                        }} className="btn btn-dark close">
+                        <button
+                            onClick={() => {
+                                setIsModalVisible(false);
+                                setPropertyToEdit(null);
+                                resetForm();
+                            }} className="btn btn-dark close">
 
-                        Close
+                            Close
 
-                    </button>
+                        </button>
 
-                    <div className="input_row">
-                        <label>
-                            <p>Property name</p>
-                            <input
-                                onChange={handleInputChange}
-                                value={formData.property}
-                                name="property"
-                                type="text"
-                                className="modal_input" />
-                        </label>
+                        <div className="input_row">
+                            <label>
+                                <p>Property name</p>
+                                <TextField
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    value={formData.property}
+                                    name="property"
+                                    type="text"
+                                    className="modal_input_old" />
+                            </label>
+                        </div>
+
+                        <div className="input_row">
+                            <label>
+                                <p>Move In Date</p>
+                                <TextField
+                                    variant="standard"
+
+                                    onChange={handleInputChange}
+                                    value={formData.move_in_date}
+                                    name="move_in"
+                                    type="date"
+                                    className="modal_input_old" />
+                            </label>
+                        </div>
+
+                        <div className="input_row">
+                            <label>
+                                <p>Rent</p>
+                                <TextField
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    value={formData.rent}
+                                    name="rent"
+                                    type="number"
+                                    className="modal_input_old" />
+                            </label>
+                        </div>
+
+                        <div className="input_row">
+                            <label>
+                                <p>Deposit</p>
+                                <TextField
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    value={formData.deposit}
+                                    name="deposit"
+                                    type="number"
+                                    className="modal_input_old" />
+                            </label>
+                        </div>
+
+                        <div className="input_row">
+                            <label>
+                                <p>Status</p>
+                                <TextField
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    value={formData.status}
+                                    name="status"
+                                    type="number"
+                                    className="modal_input_old" />
+                            </label>
+                        </div>
+
+                        <button
+                            onClick={handleSubmit}
+                            className={`btn ${propertyToEdit ? 'btn-warning' : 'btn-success'}`}
+                        >
+                            {propertyToEdit ? 'Edit Item' : 'Add Item'}
+                        </button>
                     </div>
 
-                    <div className="input_row">
-                        <label>
-                            <p>Move In Date</p>
-                            <input
-                                onChange={handleInputChange}
-                                value={formData.move_in_date}
-                                name="move_in"
-                                type="date"
-                                className="modal_input" />
-                        </label>
-                    </div>
+                </Box>
 
-                    <div className="input_row">
-                        <label>
-                            <p>Rent</p>
-                            <input
-                                onChange={handleInputChange}
-                                value={formData.rent}
-                                name="rent"
-                                type="number"
-                                className="modal_input" />
-                        </label>
-                    </div>
+            </Modal>
 
-                    <div className="input_row">
-                        <label>
-                            <p>Deposit</p>
-                            <input
-                                onChange={handleInputChange}
-                                value={formData.deposit}
-                                name="deposit"
-                                type="number"
-                                className="modal_input" />
-                        </label>
-                    </div>
-
-                    <div className="input_row">
-                        <label>
-                            <p>Status</p>
-                            <input
-                                onChange={handleInputChange}
-                                value={formData.status}
-                                name="status"
-                                type="number"
-                                className="modal_input" />
-                        </label>
-                    </div>
-
-                    <button
-                        onClick={handleSubmit}
-                        className={`btn ${propertyToEdit ? 'btn-warning' : 'btn-success'}`}
-                    >
-                        {propertyToEdit ? 'Edit Item' : 'Add Item'}
-                    </button>
-                </div>
-            }
         </div >
     )
 }
